@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄钟</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <!-- Mode Tabs -->
+    <nav id="mode-tabs">
+      <button class="mode-tab active" data-mode="work">专注</button>
+      <button class="mode-tab" data-mode="shortBreak">短休息</button>
+      <button class="mode-tab" data-mode="longBreak">长休息</button>
+    </nav>
+
+    <!-- Timer Card -->
+    <section id="timer" class="card">
+      <div class="timer-ring-container">
+        <svg viewBox="0 0 240 240" class="progress-ring">
+          <circle class="ring-bg" cx="120" cy="120" r="95"
+            fill="none" stroke="#e8e8e8" stroke-width="10" />
+          <circle id="ring-progress" cx="120" cy="120" r="95"
+            fill="none" stroke-linecap="round" stroke-width="10"
+            transform="rotate(-90 120 120)" />
+        </svg>
+        <div class="timer-display">
+          <span id="timer-mmss">25:00</span>
+          <span id="timer-label">专注时间</span>
+        </div>
+      </div>
+      <div id="timer-controls">
+        <button id="btn-toggle" class="btn-primary" disabled>开始</button>
+        <button id="btn-reset" class="btn-secondary">重置</button>
+      </div>
+    </section>
+
+    <!-- Tasks Card -->
+    <section id="tasks-section" class="card">
+      <div class="card-header">
+        <h2>任务列表</h2>
+      </div>
+      <div class="task-input-row">
+        <input type="text" id="task-input" placeholder="在做什么？" />
+        <button id="btn-add-task" class="btn-primary">添加</button>
+      </div>
+      <ul id="task-list"></ul>
+    </section>
+
+    <!-- Stats Card -->
+    <section id="stats-section" class="card card-inline">
+      <div class="stat-item">
+        <span class="stat-value" id="stat-today">0</span>
+        <span class="stat-label">今日</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="stat-total">0</span>
+        <span class="stat-label">总计</span>
+      </div>
+    </section>
+
+    <!-- History Card -->
+    <section id="history-section" class="card">
+      <div class="card-header">
+        <h2>历史记录</h2>
+      </div>
+      <ul id="history-list"></ul>
+      <p id="history-empty" class="empty-hint">暂无完成的番茄钟</p>
+    </section>
+
+    <!-- Settings Card -->
+    <section id="settings-section" class="card">
+      <div class="card-header">
+        <h2>设置</h2>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-row">
+          <span>专注时长</span>
+          <input type="number" id="setting-work" min="1" max="120" value="25" />
+          <span>分钟</span>
+        </label>
+        <label class="setting-row">
+          <span>短休息时长</span>
+          <input type="number" id="setting-short" min="1" max="30" value="5" />
+          <span>分钟</span>
+        </label>
+        <label class="setting-row">
+          <span>长休息时长</span>
+          <input type="number" id="setting-long" min="1" max="60" value="15" />
+          <span>分钟</span>
+        </label>
+        <label class="setting-row">
+          <span>窗口置顶</span>
+          <input type="checkbox" id="setting-ontop" />
+        </label>
+      </div>
+      <button id="btn-minimize" class="btn-secondary btn-wide">最小化到托盘</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

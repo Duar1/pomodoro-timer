@@ -1,0 +1,8 @@
+node_modules/
+dist/
+userData/
+*.log
+.claude/
+assets/icon2.ico
+assets/icon3.ico
+assets/icon4.ico
